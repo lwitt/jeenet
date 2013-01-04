@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>Test  PHP</title>
+  <title>Debug</title>
  </head>
  <body>
  <?php 
