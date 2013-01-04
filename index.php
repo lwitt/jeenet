@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>Debug</title>
+  <title>Debug page</title>
  </head>
  <body>
  <?php 
