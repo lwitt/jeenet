@@ -4,8 +4,8 @@
  </head>
  <body>
  <?php 
-try
-{
+	try
+	{
 $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
 
 $reponse = $bdd->query('select id,name,checkin,lastalive,abilities from nodes');
