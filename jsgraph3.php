@@ -66,17 +66,17 @@ $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
 		var data2 = google.visualization.arrayToDataTable([ ['Label', 'Value'], ['puls/sec', <?php echo $donnees['value'];?>] ]); 
 
 		<?php
-			$reponse = $bdd->query('select value,time(date) as time from storage where type=\'H\' order by date desc limit 1');
+			$reponse = $bdd->query('select value,time(date) as time from storage where type=\'H\' and node=5 order by date desc limit 1');
 			$donnees = $reponse->fetch();
 		?>
 	
-		var data3 = google.visualization.arrayToDataTable([ ['Label', 'Value'], ['Temp °C', <?php echo $donnees['value'];?>] ]);
+		var data3 = google.visualization.arrayToDataTable([ ['Label', 'Value'], ['Temp ï¿½C', <?php echo $donnees['value'];?>] ]);
 		
 		new google.visualization.Gauge(document.getElementById('gauge')). draw(data2,gaugeOptions);
 		new google.visualization.Gauge(document.getElementById('gauge2')). draw(data3,gauge2Options);
 
 
-		var data4 = google.visualization.arrayToDataTable([ ['x', '°C'], 
+		var data4 = google.visualization.arrayToDataTable([ ['x', 'ï¿½C'], 
 
 		<?php
 			$date=$_GET['date'];
@@ -91,10 +91,10 @@ $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
 		]); 
 
 		var options2 = {
-          		title: 'Température bureau <?php echo $date ?>',
+          		title: 'Tempï¿½rature bureau <?php echo $date ?>',
           		width: 1000,
 	   		height: 500,
-	  		vAxis : {maxValue:40}
+	  		vAxis : {maxValue:30}
         	};		 
 
 		new google.visualization.AreaChart(document.getElementById('visualization2')).draw(data4, options2);
