@@ -17,11 +17,11 @@ while ($donnees = $reponse->fetch())
 echo '</table><br>';
 $reponse->closeCursor();
 
-$reponse = $bdd->query('select id,node,date,type,value,value2 from storage order by date desc limit 10');
+$reponse = $bdd->query('select id,node,date,type,value,value2 from storage order by date desc limit 20');
 echo 'storage:<br><table border=1>';
 while ($donnees = $reponse->fetch())
 {
-	echo '<tr><td>'.$donnees['node'].'</td><td>' . $donnees['type'] . '</td><td>' . $donnees['value'] . '</td><td>' . $donnees ['value2'].'<td/></tr>';
+	echo '<tr><td>'.$donnees['date'].'</td><td>'.$donnees['node'].'</td><td>' . $donnees['type'] . '</td><td>' . $donnees['value'] . '</td><td>' . $donnees ['value2'].'<td/></tr>';
 }
 echo '</table>';
 $reponse->closeCursor();
