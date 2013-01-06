@@ -66,7 +66,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
 		var data2 = google.visualization.arrayToDataTable([ ['Label', 'Value'], ['puls/sec', <?php echo $donnees['value'];?>] ]); 
 
 		<?php
-			$reponse = $bdd->query('select value,time(date) as time from storage where type=\'H\' order by date desc limit 1');
+			$reponse = $bdd->query('select value,time(date) as time from storage where type=\'H\' and node=1 order by date desc limit 1');
 			$donnees = $reponse->fetch();
 		?>
 	
@@ -94,7 +94,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
           		title: 'Température bureau <?php echo $date ?>',
           		width: 1000,
 	   		height: 500,
-	  		vAxis : {maxValue:30}
+	  		vAxis : {maxValue:35}
         	};		 
 
 		new google.visualization.AreaChart(document.getElementById('visualization2')).draw(data4, options2);
