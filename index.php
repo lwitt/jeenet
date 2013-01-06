@@ -17,7 +17,7 @@ while ($donnees = $reponse->fetch())
 echo '</table><br>';
 $reponse->closeCursor();
 
-$reponse = $bdd->query('select id,date,type,value,value2 from storage order by date desc limit 10');
+$reponse = $bdd->query('select id,node,date,type,value,value2 from storage order by date desc limit 10');
 echo 'storage:<br><table border=1>';
 while ($donnees = $reponse->fetch())
 {
