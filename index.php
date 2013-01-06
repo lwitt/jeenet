@@ -21,7 +21,7 @@ $reponse = $bdd->query('select id,date,type,value,value2 from storage order by d
 echo 'storage:<br><table border=1>';
 while ($donnees = $reponse->fetch())
 {
-	echo '<tr><td>'<td>'.$donnees['id'].'</td><td>' . $donnees['type'] . '</td><td>' . $donnees['value'] . '</td><td>' . $donnees ['value2'].'<td/></tr>';
+	echo '<tr><td>'.$donnees['id'].'</td><td>' . $donnees['type'] . '</td><td>' . $donnees['value'] . '</td><td>' . $donnees ['value2'].'<td/></tr>';
 }
 echo '</table>';
 $reponse->closeCursor();
