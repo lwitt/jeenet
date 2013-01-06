@@ -224,9 +224,22 @@ if (isset($_GET['f'])) {
 						}
 						else
 							echo "pass";
+					} 
+					else {
+						$req = $bdd->prepare('INSERT INTO storage(node,type,date,value,value2) VALUES(:node,:type,:date,:value,:value2)');
+						if ($req->execute(array(
+							'node' => $node,
+							'type' => 'H',
+							'date' => date('Y-m-d H:i:s'),
+							'value' => $value,
+							'value2' => $value2		
+							)))
+       	                    echo "ok";
+              	        else
+                     	    echo "ko";
 					}
 						
-                                   break;
+                    break;
 				}
      			}
 			break;
