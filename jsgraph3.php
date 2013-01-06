@@ -94,7 +94,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
           		title: 'Température bureau <?php echo $date ?>',
           		width: 1000,
 	   		height: 500,
-	  		vAxis : {maxValue:40}
+	  		vAxis : {maxValue:35}
         	};		 
 
 		new google.visualization.AreaChart(document.getElementById('visualization2')).draw(data4, options2);
