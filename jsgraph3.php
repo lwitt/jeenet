@@ -70,13 +70,13 @@ $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
 			$donnees = $reponse->fetch();
 		?>
 	
-		var data3 = google.visualization.arrayToDataTable([ ['Label', 'Value'], ['Temp �C', <?php echo $donnees['value'];?>] ]);
+		var data3 = google.visualization.arrayToDataTable([ ['Label', 'Value'], ['Temp °C', <?php echo $donnees['value'];?>] ]);
 		
 		new google.visualization.Gauge(document.getElementById('gauge')). draw(data2,gaugeOptions);
 		new google.visualization.Gauge(document.getElementById('gauge2')). draw(data3,gauge2Options);
 
 
-		var data4 = google.visualization.arrayToDataTable([ ['x', '�C'], 
+		var data4 = google.visualization.arrayToDataTable([ ['x', '°C'], 
 
 		<?php
 			$date=$_GET['date'];
