@@ -70,19 +70,19 @@ $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
 			$donnees = $reponse->fetch();
 		?>
 	
-		var data3 = google.visualization.arrayToDataTable([ ['Label', 'Value'], ['Temp °C', <?php echo $donnees['value'];?>] ]);
+		var data3 = google.visualization.arrayToDataTable([ ['Label', 'Value'], ['Temp ï¿½C', <?php echo $donnees['value'];?>] ]);
 		
 		new google.visualization.Gauge(document.getElementById('gauge')). draw(data2,gaugeOptions);
 		new google.visualization.Gauge(document.getElementById('gauge2')). draw(data3,gauge2Options);
 
 
-		var data4 = google.visualization.arrayToDataTable([ ['x', '°C'], 
+		var data4 = google.visualization.arrayToDataTable([ ['x', 'ï¿½C'], 
 
 		<?php
 			$date=$_GET['date'];
 			if ($date=='')
 				$date=date('Y-m-d');
-			$reponse = $bdd->query('select id,time(date) as date,type,value,value2 from storage where type=\'H\' and date like \''.$date.'%\'');
+			$reponse = $bdd->query('select id,time(date) as date,type,value,value2 from storage where type=\'H\' and node=1 and date like \''.$date.'%\'');
 
 			while ($donnees = $reponse->fetch())
 				echo '[\''.$donnees['date'].'\','.$donnees['value'].'],';
@@ -91,7 +91,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
 		]); 
 
 		var options2 = {
-          		title: 'Température bureau <?php echo $date ?>',
+          		title: 'Tempï¿½rature bureau <?php echo $date ?>',
           		width: 1000,
 	   		height: 500,
 	  		vAxis : {maxValue:35}
