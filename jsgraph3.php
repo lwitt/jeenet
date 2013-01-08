@@ -76,7 +76,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
 		new google.visualization.Gauge(document.getElementById('gauge2')). draw(data3,gauge2Options);
 
 
-		var data4 = google.visualization.arrayToDataTable([ ['x', '°C'], 
+		var data4 = google.visualization.arrayToDataTable([ ['x', '&deg;C'], 
 
 		<?php
 			$date=$_GET['date'];
@@ -91,7 +91,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=jeenet', 'pi', 'mdpmdp');
 		]); 
 
 		var options2 = {
-          		title: 'Temp�rature bureau <?php echo $date ?>',
+          		title: 'Température bureau <?php echo $date ?>',
           		width: 1000,
 	   		height: 500,
 	  		vAxis : {maxValue:35}
