@@ -93,7 +93,7 @@ if (isset($_GET['f'])) {
 
 			if ($bdd->query('SELECT * FROM nodes WHERE id=\''.$value.'\'')->fetch()) {
 				echo "already exists";
-				if ($bdd->exec('UPDATE nodes SET lastalive=\''.date('Y-m-d H:i:s').'\'')>0)
+				if ($bdd->exec('UPDATE nodes SET lastalive=\''.date('Y-m-d H:i:s').'\' WHERE node='.$value)>0)
 						echo "ok";
 					else
 						echo "ko";
