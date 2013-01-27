@@ -10,8 +10,6 @@ Scheduler scheduler (schedBuf, TASK_LIMIT);
 
 ISR(WDT_vect) { Sleepy::watchdogEvent(); } 
 
-
-
 Port msgled (2);
 Port countled (4);
 
@@ -33,13 +31,6 @@ volatile boolean intLoop=false;
 
 void onPulse();
 int readVcc();
-
-
-//ISR(PCINT2_vect) {
-//    pulseCount++;
-//    
-//    countled.digiWrite(HIGH); delay(2); countled.digiWrite(LOW);
-//}
 
 void setup () {
     Serial.begin(57600);
@@ -73,14 +64,6 @@ void setup () {
 }
 
 void loop () {
-//     if (rf12_recvDone() && rf12_crc == 0) {
-//       
-//           if (RF12_ACK_REPLY) {
-//             //Serial.println("ok");
-//             byte addr = rf12_hdr & RF12_HDR_MASK;
-//             //Serial.println(addr);
-//           }
-//    }
    
    switch (scheduler.pollWaiting()) {
      
@@ -129,7 +112,6 @@ void onPulse()
   pulseCount++;
   intLoop=true;
   countled.digiWrite(HIGH); delay(2); countled.digiWrite(LOW);
-  //digitalWrite(5,HIGH); delay(2); digitalWrite(5,LOW);
 }
 
 int readVcc() {

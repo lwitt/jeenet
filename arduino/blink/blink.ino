@@ -1,11 +1,15 @@
-// Blink - adapted for a JeeNode / JeeLink 
+#include <Ports.h>
+
+Port hfled (3);
 
 void setup() { 
-pinMode(9, OUTPUT); 
+	hfled.mode(OUTPUT);
+	hfled.mode2(OUTPUT);
+	Serial.begin(57600);
 } 
 void loop() { 
-digitalWrite(9, LOW); 
-delay(1000); 
-digitalWrite(9, HIGH); 
-delay(1000); 
+	
+	hfled.digiWrite2(HIGH); delay(2); hfled.digiWrite2(LOW);
+	delay(1000); 
+	Serial.println("hello world");
 }
