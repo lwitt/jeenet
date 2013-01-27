@@ -88,8 +88,8 @@ if (isset($_GET['f'])) {
 			break;
 
 		case "addnode":
-			echo "addnode";
 			$value=$_GET['v'];
+			echo "addnode ".$value." ";
 
 			if ($bdd->query('SELECT * FROM nodes WHERE id=\''.$value.'\'')->fetch()) {
 				echo "already exists";
@@ -172,7 +172,8 @@ if (isset($_GET['f'])) {
 					}
 				}
 				
-				echo "METEO:".$city.":".$weather_conditions[(string)$conditions_code[0]].":".$temp;
+				//echo "METEO:".$city.":".$weather_conditions[(string)$conditions_code[0]].":".$temp;
+				echo "MET:".$weather_conditions[(string)$conditions_code[0]].":".$temp.":".$week[(string)$days[0]].":".$temp_low[0].":".$temp_high[0].":".$week[(string)$days[1]].":".$temp_low[1].":".$temp_high[1];
 			}
 			else
 				echo "ko"; 
@@ -184,7 +185,7 @@ if (isset($_GET['f'])) {
 				$type=$_GET['t'];
 				$node=$_GET['n'];
 				$value=$_GET['v'];
- 				$value2=$_GET['v2'];
+ 				if (isset($_GET['v2'])) $value2=$_GET['v2'];
 	
 				switch ($type) {
 					case 'w':
